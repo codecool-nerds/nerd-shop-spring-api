@@ -6,13 +6,12 @@ import javax.persistence.*;
 @Table(name = "user_data")
 public class UserData {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String pic_url;
     private Long balance;
     private Long exp;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @MapsId
     private User user;
 
     public Long getId() {

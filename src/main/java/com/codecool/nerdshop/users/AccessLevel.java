@@ -7,11 +7,10 @@ import javax.persistence.*;
 public class AccessLevel {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @MapsId
     private User user;
     //TODO some field to hold enumerated values available but not seen by hibernate?
 

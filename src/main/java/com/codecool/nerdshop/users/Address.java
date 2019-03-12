@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String city;
     private String street;
@@ -19,16 +18,9 @@ public class Address {
     private String postalCode;
     private String country;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @MapsId
     private User user;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCity() {
         return city;
