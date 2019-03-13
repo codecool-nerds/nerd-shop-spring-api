@@ -10,7 +10,8 @@ public class UserData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String pic_url;
+    @Column(name = "pic_url")
+    private String picUrl;
     private Long balance;
     private Long exp;
     @OneToOne(mappedBy = "userData", fetch = FetchType.LAZY)
@@ -24,12 +25,12 @@ public class UserData {
         this.id = id;
     }
 
-    public String getPic_url() {
-        return pic_url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPic_url(String pic_url) {
-        this.pic_url = pic_url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
     public Long getBalance() {

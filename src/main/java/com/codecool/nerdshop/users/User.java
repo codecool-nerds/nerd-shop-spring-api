@@ -14,7 +14,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String email;
-    private String hashed_password;
+    @Column(name = "hashed_password")
+    private String hashedPassword;
     private String hash;
     private String session_id;
     @OneToOne(fetch = FetchType.LAZY)
@@ -42,12 +43,12 @@ public class User {
         this.email = email;
     }
 
-    public String getHashed_password() {
-        return hashed_password;
+    public String getHashedPassword() {
+        return hashedPassword;
     }
 
-    public void setHashed_password(String hashed_password) {
-        this.hashed_password = hashed_password;
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 
     public String getHash() {
