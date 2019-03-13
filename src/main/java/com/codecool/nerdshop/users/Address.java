@@ -1,5 +1,7 @@
 package com.codecool.nerdshop.users;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import javax.persistence.*;
 
 @Entity(name = "Address")
@@ -7,6 +9,7 @@ import javax.persistence.*;
 public class Address {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String city;
     private String street;
@@ -17,8 +20,7 @@ public class Address {
     @Column(name = "postal_code")
     private String postalCode;
     private String country;
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
+    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
     private User user;
 
 
@@ -74,7 +76,20 @@ public class Address {
         return user;
     }
 
+    @JsonGetter("user")
+    public Long getUserId() {
+        return user.getId();
+    }
+
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

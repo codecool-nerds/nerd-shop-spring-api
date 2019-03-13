@@ -1,17 +1,19 @@
 package com.codecool.nerdshop.users;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+
 import javax.persistence.*;
 
 @Entity(name = "UserData")
 @Table(name = "user_data")
 public class UserData {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String pic_url;
     private Long balance;
     private Long exp;
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
+    @OneToOne(mappedBy = "userData", fetch = FetchType.LAZY)
     private User user;
 
     public Long getId() {
@@ -52,5 +54,10 @@ public class UserData {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @JsonGetter("user")
+    public Long getUserId(){
+        return user.getId();
     }
 }

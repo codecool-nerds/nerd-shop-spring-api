@@ -1,5 +1,6 @@
 package com.codecool.nerdshop.users;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -16,13 +17,12 @@ public class User {
     private String hashed_password;
     private String hash;
     private String session_id;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "access_level_id")
+    @Enumerated(EnumType.STRING)
     private AccessLevel accessLevel;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_data_id")
     private UserData userData;
 
@@ -88,5 +88,15 @@ public class User {
 
     public void setUserData(UserData userData) {
         this.userData = userData;
+    }
+
+    @JsonGetter("address")
+    public Long getAddressId() {
+        return address.getId();
+    }
+
+    @JsonGetter("userData")
+    public Long getUserDataId() {
+        return userData.getId();
     }
 }
