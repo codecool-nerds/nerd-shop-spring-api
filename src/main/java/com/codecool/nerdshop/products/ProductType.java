@@ -1,4 +1,8 @@
 package com.codecool.nerdshop.products;
 
-public class ProductType {
+public enum ProductType {
+    GAME,
+    MOUSE,
+    KEYBOARD,
+    HEADSET
 }
