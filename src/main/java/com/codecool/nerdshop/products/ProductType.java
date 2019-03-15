@@ -4,5 +4,6 @@ public enum ProductType {
     GAME,
     MOUSE,
     KEYBOARD,
-    HEADSET
+    HEADSET,
+    OTHER
 }
