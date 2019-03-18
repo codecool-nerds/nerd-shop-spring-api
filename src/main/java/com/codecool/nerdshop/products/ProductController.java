@@ -13,18 +13,13 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public Collection<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public Collection<Product> getProductsByCategory(@RequestParam(required = false) String category) {
+        return productService.getProductsByCategory(category);
     }
 
     @GetMapping(value = "/{id}")
     public Product getProductById(@PathVariable long id) {
         return productService.getProductById(id);
-    }
-
-    @GetMapping(value = "/{category}")
-    public Collection<Product> getProductsByCategory(@PathVariable String category) {
-        return productService.getProductsByCategory(category);
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
