@@ -26,6 +26,14 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private UserData userData;
 
+    public User() {
+    }
+
+    public User(String email, String hashedPassword, AccessLevel accessLevel) {
+        this.email = email;
+        this.hashedPassword = hashedPassword;
+    }
+
     public Long getId() {
         return id;
     }
