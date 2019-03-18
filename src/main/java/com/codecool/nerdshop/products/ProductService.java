@@ -13,4 +13,12 @@ public class ProductService {
     public Collection<Product> getAllProducts() {
         return productRepository.findAll();
     }
+
+    public Product getProductById(long id) {
+        return productRepository.findById(id).get();
+    }
+
+    public Collection<Product> getProductsByCategory(String category) {
+        return productRepository.findByCategory(Category.valueOf(category));
+    }
 }
