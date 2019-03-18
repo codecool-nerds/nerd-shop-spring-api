@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.NoSuchElementException;
 
 @Service
 public class ProductService {
@@ -39,5 +38,9 @@ public class ProductService {
         }
 
         return productRepository.save(product);
+    }
+
+    public void deleteProductById(long id) {
+        productRepository.deleteById(id);
     }
 }
