@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String city;
     private String street;
@@ -20,7 +19,8 @@ public class Address {
     @Column(name = "postal_code")
     private String postalCode;
     private String country;
-    @OneToOne(mappedBy = "address", fetch = FetchType.LAZY)
+    @OneToOne( fetch = FetchType.LAZY)
+    @MapsId
     private User user;
 
 

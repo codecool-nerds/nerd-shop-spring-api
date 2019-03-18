@@ -8,13 +8,13 @@ import javax.persistence.*;
 @Table(name = "user_data")
 public class UserData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "pic_url")
     private String picUrl;
     private Long balance;
     private Long exp;
-    @OneToOne(mappedBy = "userData", fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     private User user;
 
     public Long getId() {

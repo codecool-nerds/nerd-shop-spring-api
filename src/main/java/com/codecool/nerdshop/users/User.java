@@ -17,14 +17,13 @@ public class User {
     @Column(name = "hashed_password")
     private String hashedPassword;
     private String hash;
-    private String session_id;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @Column(name = "session_id")
+    private String sessionId;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private Address address;
     @Enumerated(EnumType.STRING)
     private AccessLevel accessLevel;
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_data_id")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "user")
     private UserData userData;
 
     public Long getId() {
@@ -59,12 +58,12 @@ public class User {
         this.hash = hash;
     }
 
-    public String getSession_id() {
-        return session_id;
+    public String getSessionId() {
+        return sessionId;
     }
 
-    public void setSession_id(String session_id) {
-        this.session_id = session_id;
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 
     public Address getAddress() {
@@ -91,13 +90,13 @@ public class User {
         this.userData = userData;
     }
 
-    @JsonGetter("address")
-    public Long getAddressId() {
-        return address.getId();
-    }
-
-    @JsonGetter("userData")
-    public Long getUserDataId() {
-        return userData.getId();
-    }
+//    @JsonGetter("address")
+//    public Long getAddressId() {
+//        return address.getId();
+//    }
+//
+//    @JsonGetter("userData")
+//    public Long getUserDataId() {
+//        return userData.getId();
+//    }
 }
