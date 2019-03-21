@@ -1,6 +1,7 @@
 package com.codecool.nerdshop.users;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
+import com.codecool.nerdshop.users.addresses.Address;
+import com.codecool.nerdshop.users.userData.UserData;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false, unique = true)
     private String email;
     @Column(name = "hashed_password")
     private String hashedPassword;

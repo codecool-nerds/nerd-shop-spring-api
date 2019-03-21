@@ -1,5 +1,6 @@
-package com.codecool.nerdshop.users;
+package com.codecool.nerdshop.users.addresses;
 
+import com.codecool.nerdshop.users.User;
 import com.fasterxml.jackson.annotation.JsonGetter;
 
 import javax.persistence.*;
