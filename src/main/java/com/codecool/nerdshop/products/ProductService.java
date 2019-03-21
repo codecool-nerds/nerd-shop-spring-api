@@ -8,29 +8,37 @@ import java.util.Collection;
 
 @Service
 public class ProductService {
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+
     @Autowired
-    private ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository, CategoryRepository categoryRepository) {
+        this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     public Product getProductById(long id) {
         return productRepository.findById(id).get();
     }
 
-    public Collection<Product> getProductsByCategory(String category) {
-        if (category != null) {
-            return productRepository.findByCategory(Category.valueOf(category.toUpperCase()));
+    public Collection<Product> getProductsByCategory(String categoryName) {
+        if (categoryName != null) {
+            return productRepository.findByCategory_Name(categoryName);
         }
-
         return productRepository.findAll();
     }
 
     public Product insertProduct(Product product) {
+        Category category = product.getCategory();
+        category = categoryRepository.findByName(category.getName());
+        product.setCategory(category);
         return productRepository.save(product);
     }
 
     public Product updateProduct(Product product) {
-        boolean doesProductHasId = product.getId() != null ? true : false;
+        boolean hasId = (product.getId() != null);
 
-        if (doesProductHasId) {
+        if (hasId) {
             boolean isProductInDb = productRepository.existsById(product.getId());
 
             if (!isProductInDb) {

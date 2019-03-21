@@ -10,7 +10,8 @@ public class Product {
     @Column(name = "product_id")
     private Long id;
     private String name;
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
     private Double price;
     private Integer quantity;
@@ -31,6 +32,7 @@ public class Product {
         this.category = category;
         this.price = price;
         this.description = description;
+        this.quantity = 0;
     }
 
     public Long getId() {
@@ -57,19 +59,19 @@ public class Product {
         this.category = category;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
