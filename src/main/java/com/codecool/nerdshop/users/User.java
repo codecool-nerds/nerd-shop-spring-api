@@ -34,6 +34,7 @@ public class User {
     public User(String email, String hashedPassword, AccessLevel accessLevel) {
         this.email = email;
         this.hashedPassword = hashedPassword;
+        this.accessLevel = accessLevel;
     }
 
     public Long getId() {
