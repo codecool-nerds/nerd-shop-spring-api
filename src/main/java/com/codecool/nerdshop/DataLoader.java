@@ -1,5 +1,9 @@
 package com.codecool.nerdshop;
 
+import com.codecool.nerdshop.products.Category;
+import com.codecool.nerdshop.products.CategoryRepository;
+import com.codecool.nerdshop.products.Product;
+import com.codecool.nerdshop.products.ProductRepository;
 import com.codecool.nerdshop.users.AccessLevel;
 import com.codecool.nerdshop.users.User;
 import com.codecool.nerdshop.users.UserRepository;
@@ -23,4 +27,22 @@ public class DataLoader {
         list.add(user);
         return list;
     }
+
+    @Bean
+    public List<Product> loadCategoriesAndProducts(CategoryRepository categoryRepo, ProductRepository productRepo) {
+        List<Product> products = new ArrayList<>();
+        Category mice = new Category("MICE");
+        categoryRepo.save(mice);
+        Category keyboards = new Category("KEYBOARDS");
+        categoryRepo.save(keyboards);
+
+        Product steel = new Product("Rival 300", mice, 150.00, "cool steelseries");
+        Product razer = new Product("Razer 2000", keyboards, 300.00, "random razer keyboard");
+        products.add(steel);
+        products.add(razer);
+        productRepo.saveAll(products);
+        return products;
+    }
+
+
 }
