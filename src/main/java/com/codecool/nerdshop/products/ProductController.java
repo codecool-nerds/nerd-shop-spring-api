@@ -9,8 +9,12 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
+    private final ProductService productService;
+
     @Autowired
-    private ProductService productService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping
     public Collection<Product> getProductsByCategory(@RequestParam(required = false) String category) {
