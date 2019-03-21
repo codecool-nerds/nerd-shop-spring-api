@@ -1,7 +1,5 @@
 package com.codecool.nerdshop.users;
 
-
-
 public enum AccessLevel {
     ADMIN,
     USER;

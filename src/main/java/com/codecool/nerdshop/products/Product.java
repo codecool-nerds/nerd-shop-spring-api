@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
@@ -11,8 +12,8 @@ public class Product {
     private String name;
     @Enumerated(EnumType.STRING)
     private Category category;
-    private double price;
-    private int quantity;
+    private Double price;
+    private Integer quantity;
     private String imageURL;
     private String description;
 
@@ -23,6 +24,13 @@ public class Product {
         this.category = category;
         this.price = 0.0;
         this.quantity = 1;
+    }
+
+    public Product(String name, Category category, double price, String description) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.description = description;
     }
 
     public Long getId() {
