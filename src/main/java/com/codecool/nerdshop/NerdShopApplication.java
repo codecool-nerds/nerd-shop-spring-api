@@ -14,20 +14,11 @@ import java.util.List;
 @SpringBootApplication
 @EnableJpaAuditing
 public class NerdShopApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(NerdShopApplication.class, args);
     }
 
 
-    @Bean
-    public List<User> loadExampleData(UserRepository repository) {
-        List<User> list = new ArrayList<>();
-        User admin = new User("rafal@nerd.pl", "admin123", AccessLevel.ADMIN);
-        repository.save(admin);
-        list.add(admin);
-        User user = new User("karol.trzaska@nerd.pl", "wTibie", AccessLevel.USER);
-        repository.save(user);
-        list.add(user);
-        return list;
-    }
+
 }
