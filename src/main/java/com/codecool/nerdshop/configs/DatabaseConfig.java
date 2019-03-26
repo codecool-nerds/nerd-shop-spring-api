@@ -1,4 +1,4 @@
-package com.codecool.nerdshop;
+package com.codecool.nerdshop.configs;
 
 import com.zaxxer.hikari.*;
 import org.springframework.beans.factory.annotation.Value;

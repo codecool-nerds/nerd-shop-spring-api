@@ -1,4 +1,4 @@
-package com.codecool.nerdshop;
+package com.codecool.nerdshop.configs;
 
 import com.codecool.nerdshop.products.categories.Category;
 import com.codecool.nerdshop.products.categories.CategoryRepository;
