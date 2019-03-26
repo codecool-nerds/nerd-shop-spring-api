@@ -1,5 +1,6 @@
-package com.codecool.nerdshop.products;
+package com.codecool.nerdshop.products.categories;
 
+import com.codecool.nerdshop.products.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;

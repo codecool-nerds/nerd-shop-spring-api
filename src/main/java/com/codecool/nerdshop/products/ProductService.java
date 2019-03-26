@@ -1,9 +1,10 @@
 package com.codecool.nerdshop.products;
 
+import com.codecool.nerdshop.products.categories.Category;
+import com.codecool.nerdshop.products.categories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Collection;
 
 @Service

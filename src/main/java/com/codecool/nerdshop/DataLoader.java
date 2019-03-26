@@ -1,7 +1,7 @@
 package com.codecool.nerdshop;
 
-import com.codecool.nerdshop.products.Category;
-import com.codecool.nerdshop.products.CategoryRepository;
+import com.codecool.nerdshop.products.categories.Category;
+import com.codecool.nerdshop.products.categories.CategoryRepository;
 import com.codecool.nerdshop.products.Product;
 import com.codecool.nerdshop.products.ProductRepository;
 import com.codecool.nerdshop.users.AccessLevel;
@@ -9,13 +9,12 @@ import com.codecool.nerdshop.users.User;
 import com.codecool.nerdshop.users.UserRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
-@SpringBootApplication
+@Component
 public class DataLoader {
-
     @Bean
     public List<User> loadExampleUsers(UserRepository repository) {
         List<User> list = new ArrayList<>();

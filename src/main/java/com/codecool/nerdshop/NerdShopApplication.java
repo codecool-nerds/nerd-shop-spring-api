@@ -19,6 +19,4 @@ public class NerdShopApplication {
         SpringApplication.run(NerdShopApplication.class, args);
     }
 
-
-
 }

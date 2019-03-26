@@ -1,5 +1,7 @@
 package com.codecool.nerdshop.products;
 
+import com.codecool.nerdshop.products.categories.Category;
+
 import javax.persistence.*;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.codecool.nerdshop.products;
+package com.codecool.nerdshop.products.categories;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
